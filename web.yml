@@ -1,0 +1,19 @@
+- hosts: all
+  vars_files:
+          - /root/os dependent configuration/{{ ansible_facts['distribution'] }}.yml 
+  tasks:
+          - name: Installing webserver
+            package:
+                    name: "{{ name }}"
+                    state: present
+          - name: Copying web content
+            template:
+                    src: "/root/os dependent configuration/index.html.j2"
+                    dest: "/var/www/html/"
+
+
+
+          - name: Starting services
+            service:
+                    name: "{{ name }}"
+                    state: started 

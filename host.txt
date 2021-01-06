@@ -1,0 +1,3 @@
+[web]
+13.126.85.85
+192.168.43.233 ansible_ssh_user=root ansible_ssh_pass=redhat
